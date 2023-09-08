@@ -5,24 +5,21 @@
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input value="{{old('title')}}" type="text" placeholder="title" name="title" class="form-control"
-                       id="title">
+                <input value="{{old('title')}}" type="text" placeholder="title" name="title" class="form-control" id="title">
                 @error('title')
                 <p class="text-danger">{{$message}}</p>
                 @enderror
             </div>
             <div class="mb-3">
                 <label for="content" class="form-label">Content</label>
-                <textarea type="text" placeholder="content" name="content" class="form-control"
-                          id="content">{{old('content')}}</textarea>
+                <textarea type="text" placeholder="content" name="content" class="form-control" id="content">{{old('content')}}</textarea>
                 @error('content')
                 <p class="text-danger">{{$message}}</p>
                 @enderror
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label">Image</label>
-                <input value="{{old('image')}}" type="text" placeholder="image" name="image" class="form-control"
-                       id="image">
+                <input value="{{old('image')}}" type="text" placeholder="image" name="image" class="form-control" id="image">
                 @error('image')
                 <p class="text-danger">{{$message}}</p>
                 @enderror
@@ -30,6 +27,7 @@
             <div class="mb-3">
                 <label class="form-label">Category</label>
                 <select class="form-select" name="category_id" aria-label="Default select example">
+
                     @foreach($categories as $category)
                         <option
                             {{old('category_id')==$category->id?'selected':''}}

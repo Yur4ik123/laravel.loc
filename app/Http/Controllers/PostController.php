@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
-use App\Models\PostTag;
 use App\Models\Tag;
 use Illuminate\Routing\Controller as BaseController;
 
@@ -13,7 +12,10 @@ class PostController extends BaseController
     public function index()
     {
 
-        $posts = Post::all();
+        $posts = Post::find(1);
+        $category = Category::find(1);
+        $tag  = Tag::find(1);
+        dd($posts->tags);
         return view('posts.index', compact('posts'));
     }
 
