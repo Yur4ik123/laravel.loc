@@ -16,6 +16,30 @@
             <label for="image" class="form-label">Image</label>
             <input type="text" placeholder="image" name="image" class="form-control" value="{{$post->title}}" id="image">
         </div>
+        <div class="mb-3">
+            <label  class="form-label">Category</label>
+            <select class="form-select" name="category_id" >
+                @foreach($categories as $category)
+                    <option
+                        {{$category->id == $post->category->id ? 'selected': ''}}
+                        value="{{$category->id}}">{{$category->title}}
+                    </option>
+                @endforeach
+
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Tags</label>
+            <select class="form-select" name="tags[]" multiple aria-label="Default select example">
+                @foreach($tags as $tag)
+                    <option
+                        @foreach($post->tags as $postTag)
+                            {{$tag->id == $postTag->id ? 'selected': ''}}
+                        @endforeach
+                        value="{{$tag->id}}">{{$tag->title}}</option>
+                @endforeach
+            </select>
+        </div>
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
 </div>
