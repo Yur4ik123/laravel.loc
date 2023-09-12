@@ -10,11 +10,11 @@
         </div>
         <div class="mb-3">
             <label for="content" class="form-label">Content</label>
-            <textarea type="text" placeholder="content" name="content" class="form-control" id="content" >{{$post->title}}</textarea>
+            <textarea type="text" placeholder="content" name="content" class="form-control" id="content" >{{$post->content}}</textarea>
         </div>
         <div class="mb-3">
             <label for="image" class="form-label">Image</label>
-            <input type="text" placeholder="image" name="image" class="form-control" value="{{$post->title}}" id="image">
+            <input type="text" placeholder="image" name="image" class="form-control" value="{{$post->image}}" id="image">
         </div>
         <div class="mb-3">
             <label  class="form-label">Category</label>
