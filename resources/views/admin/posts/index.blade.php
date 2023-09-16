@@ -1,0 +1,18 @@
+@extends('layouts.admin')
+@section('content')
+    <div class="row">
+        <div>
+            <a class="btn btn-primary m-3" href="{{route('posts.create')}}">Add post</a>
+        </div>
+        <div class="row">
+            @foreach($posts as $post)
+                <div>
+                    <a href="{{route('posts.show', $post->id)}}"> {{$post->id}} . {{$post->title}}</a>
+                </div>
+            @endforeach
+            <div class="mt-3">
+                {{$posts->withQueryString()->links()}}
+            </div>
+        </div>
+    </div>
+@endsection

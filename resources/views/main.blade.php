@@ -1,4 +1,1 @@
-@extends('layouts.app')
-@section('content')
-    HOME PAGE
-@endsection
+@extends('layouts.app');

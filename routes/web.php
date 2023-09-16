@@ -8,6 +8,7 @@ use App\Http\Controllers\Post\ShowController;
 use App\Http\Controllers\Post\StoreController;
 use App\Http\Controllers\Post\UpdateController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\Post\IndexController as AdminPostIndexController;
 
 
 
@@ -36,5 +37,18 @@ Route::get('/', function () {
     Route::delete('/posts/{post}', DeleteController::class)->name('posts.delete');
 
 
+//    ADMIN
+Route::group(['prefix' => 'admin', 'as' =>'admin.', 'middleware' => 'admin'],  function (){
+    Route::view('/', 'admin.dashboard')->name('index');
+    Route::group(['prefix' => 'posts', 'as' => 'posts.'], function (){
+        Route::get('/', AdminPostIndexController::class)->name('index');
+    });
+
+});
 
 
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
